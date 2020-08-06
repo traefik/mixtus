@@ -49,17 +49,20 @@ func run(cfg Config) error {
 		return fmt.Errorf("failed to copy documentation: %w", err)
 	}
 
+	// move to temp dir
 	err = os.Chdir(dir)
 	if err != nil {
 		return err
 	}
 
+	// setup git user info
 	output, err = setupGitUserInfo(cfg.Git)
 	if err != nil {
 		fmt.Println(output)
 		return fmt.Errorf("failed to setup Git user configuration: %w", err)
 	}
 
+	// check the git status of the dir
 	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("-s") })
 	if err != nil {
 		fmt.Println(output)
@@ -73,24 +76,28 @@ func run(cfg Config) error {
 
 	branchName := filepath.Base(dir)
 
+	// checkout a new branch
 	output, err = git.Checkout(checkout.NewBranch(branchName), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
 		return fmt.Errorf("failed to create a new branch: %w", err)
 	}
 
+	// add target doc path to the index
 	output, err = git.Add(add.PathSpec(cfg.Target.DocPath), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
 		return fmt.Errorf("failed to add files: %w", err)
 	}
 
+	// create a commit
 	output, err = git.Commit(commit.Message(fmt.Sprintf("Update documentation for %s", cfg.Source.RepoName)), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
 		return fmt.Errorf("failed to commit: %w", err)
 	}
 
+	// push the branch to the target git repo
 	output, err = git.Push(push.Remote("origin"), push.Repo(cfg.Target.RepoName), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
