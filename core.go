@@ -29,7 +29,7 @@ func run(cfg Config) error {
 
 	docTarget := filepath.Join(dir, cfg.Target.DocPath)
 
-	docGitURL := makeRemoteURL(cfg.Target, cfg.Token, true)
+	docGitURL := makeRemoteURL(cfg.Target, cfg.Token, false)
 
 	output, err := git.Clone(clone.Repository(docGitURL), clone.Depth("1"), clone.Directory(dir), git.Debugger(cfg.Debug))
 	if err != nil {
