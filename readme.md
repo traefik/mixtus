@@ -19,9 +19,9 @@ Flags:
   -dst-repo-name string
         Name of the targeted doc repo. (default "doc")
   -git-user-email string
-        GitUserEmail
+        Email used to commit the documentation.
   -git-user-name string
-        GitUserName
+        UserName used to commit the documentation.
   -h    Show this help.
   -src-doc-path string
         Path to the documentation. (default "./docs/site")
