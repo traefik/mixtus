@@ -33,6 +33,10 @@ Flags:
         GitHub Token
 ```
 
+- `GITHUB_TOKEN` equivalent of `-token`
+- `GIT_USER_NAME` equivalent of `-git-user-email`
+- `GIT_USER_EMAIL` equivalent of `-git-user-name`
+
 ## Examples
 
 ```bash
