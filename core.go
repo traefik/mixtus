@@ -102,7 +102,7 @@ func run(cfg Config) error {
 	}
 
 	// push the branch to the target git repo
-	output, err = git.Push(push.Remote("origin"), push.Repo(cfg.Target.RepoName), git.Debugger(cfg.Debug))
+	output, err = git.Push(push.Remote("origin"), push.RefSpec(branchName), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
 		return fmt.Errorf("failed to push: %s", err)
