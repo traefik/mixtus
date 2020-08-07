@@ -25,7 +25,11 @@ func run(cfg Config) error {
 		return err
 	}
 
-	defer func() { _ = os.RemoveAll(dir) }()
+	defer func() {
+		if !cfg.Debug {
+			_ = os.RemoveAll(dir)
+		}
+	}()
 
 	docTarget := filepath.Join(dir, cfg.Target.DocPath)
 
@@ -56,14 +60,14 @@ func run(cfg Config) error {
 	}
 
 	// setup git user info
-	output, err = setupGitUserInfo(cfg.Git)
+	output, err = setupGitUserInfo(cfg.Git, cfg.Debug)
 	if err != nil {
 		fmt.Println(output)
 		return fmt.Errorf("failed to setup Git user configuration: %w", err)
 	}
 
 	// check the git status of the dir
-	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("-s") })
+	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("-s") }, git.Debugger(cfg.Debug))
 	if err != nil {
 		fmt.Println(output)
 		return fmt.Errorf("failed to get Git status: %w", err)
@@ -122,16 +126,16 @@ func makeRemoteURL(target RepoInfo, token string, ssh bool) string {
 	return fmt.Sprintf("%sgithub.com/%s/%s.git", prefix, target.Owner, target.RepoName)
 }
 
-func setupGitUserInfo(gitInfo GitInfo) (string, error) {
+func setupGitUserInfo(gitInfo GitInfo, debug bool) (string, error) {
 	if len(gitInfo.UserEmail) != 0 {
-		output, err := git.Config(config.Entry("user.email", gitInfo.UserEmail))
+		output, err := git.Config(config.Entry("user.email", gitInfo.UserEmail), git.Debugger(debug))
 		if err != nil {
 			return output, err
 		}
 	}
 
 	if len(gitInfo.UserName) != 0 {
-		output, err := git.Config(config.Entry("user.name", gitInfo.UserName))
+		output, err := git.Config(config.Entry("user.name", gitInfo.UserName), git.Debugger(debug))
 		if err != nil {
 			return output, err
 		}

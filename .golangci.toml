@@ -24,7 +24,7 @@
 
   [linters-settings.funlen]
     lines = 80 # default 60
-    statements = 50 # default 40
+    statements = 55 # default 40
 
 [linters]
   enable-all = true
