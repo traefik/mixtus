@@ -19,9 +19,9 @@ Flags:
   -dst-repo-name string
         Name of the targeted doc repo. (default "doc")
   -git-user-email string
-        Email used to commit the documentation.
+        Email used to commit the documentation. [GIT_USER_EMAIL]
   -git-user-name string
-        UserName used to commit the documentation.
+        UserName used to commit the documentation. [GIT_USER_NAME]
   -h    Show this help.
   -src-doc-path string
         Path to the documentation. (default "./docs/site")
@@ -30,12 +30,8 @@ Flags:
   -src-repo-name string
         Name of the source repo. (default "traefik")
   -token string
-        GitHub Token
+        GitHub Token [GITHUB_TOKEN]
 ```
-
-- `GITHUB_TOKEN` equivalent of `-token`
-- `GIT_USER_NAME` equivalent of `-git-user-email`
-- `GIT_USER_EMAIL` equivalent of `-git-user-name`
 
 ## Examples
 

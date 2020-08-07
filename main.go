@@ -11,7 +11,7 @@ import (
 func main() {
 	cfg := Config{}
 
-	flag.StringVar(&cfg.Token, "token", os.Getenv("GITHUB_TOKEN"), "GitHub Token")
+	flag.StringVar(&cfg.Token, "token", os.Getenv("GITHUB_TOKEN"), "GitHub Token [GITHUB_TOKEN]")
 
 	flag.StringVar(&cfg.Source.Owner, "src-owner", "traefik", "Owner of the source repository.")
 	flag.StringVar(&cfg.Source.RepoName, "src-repo-name", "traefik", "Name of the source repo.")
@@ -21,8 +21,8 @@ func main() {
 	flag.StringVar(&cfg.Target.RepoName, "dst-repo-name", "doc", "Name of the targeted doc repo.")
 	flag.StringVar(&cfg.Target.DocPath, "dst-doc-path", "./traefik", "Path to put the documentation.")
 
-	flag.StringVar(&cfg.Git.UserEmail, "git-user-name", os.Getenv("GIT_USER_NAME"), "UserName used to commit the documentation.")
-	flag.StringVar(&cfg.Git.UserEmail, "git-user-email", os.Getenv("GIT_USER_EMAIL"), "Email used to commit the documentation.")
+	flag.StringVar(&cfg.Git.UserEmail, "git-user-name", os.Getenv("GIT_USER_NAME"), "UserName used to commit the documentation. [GIT_USER_NAME]")
+	flag.StringVar(&cfg.Git.UserEmail, "git-user-email", os.Getenv("GIT_USER_EMAIL"), "Email used to commit the documentation. [GIT_USER_EMAIL]")
 
 	flag.BoolVar(&cfg.Debug, "debug", false, "Debug mode")
 
