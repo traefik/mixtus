@@ -2,7 +2,7 @@
 
 [![GitHub release](https://img.shields.io/github/release/traefik/mixtus.svg)](https://github.com/traefik/mixtus/releases/latest)
 [![Build Status](https://travis-ci.com/traefik/mixtus.svg?branch=master)](https://travis-ci.com/traefik/mixtus)
-[![Docker Build Status](https://img.shields.io/docker/build/traefik/mixtus.svg)](https://hub.docker.com/r/traefik/mixtus/builds/)
+[![Docker Build Status](https://img.shields.io/docker/cloud/build/traefik/mixtus.svg)](https://hub.docker.com/r/traefik/mixtus/builds/)
 
 ## Description
 
