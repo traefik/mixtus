@@ -79,6 +79,11 @@ func validate(cfg Config) error {
 		return fmt.Errorf("target: %w", err)
 	}
 
+	if (cfg.Git.UserName != "" && cfg.Git.UserEmail == "") || (cfg.Git.UserName == "" && cfg.Git.UserEmail != "") {
+		return fmt.Errorf("both options (Git user's email and username) must be set together or not set at all: %s - %s",
+			cfg.Git.UserName, cfg.Git.UserEmail)
+	}
+
 	return nil
 }
 
