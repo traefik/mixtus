@@ -32,7 +32,7 @@ func run(cfg Config) error {
 		}
 	}()
 
-	docTarget := filepath.Join(dir, cfg.Target.DocPath)
+	docPathTarget := filepath.Join(dir, cfg.Target.DocPath)
 
 	docGitURL := makeRemoteURL(cfg.Target, cfg.Token, false)
 
@@ -43,13 +43,13 @@ func run(cfg Config) error {
 	}
 
 	// clean doc
-	err = os.RemoveAll(docTarget)
+	err = os.RemoveAll(docPathTarget)
 	if err != nil {
 		return fmt.Errorf("failed to reset documentation: %w", err)
 	}
 
 	// copy source docs into targeted directory
-	err = file.Copy(cfg.Source.DocPath, docTarget)
+	err = file.Copy(cfg.Source.DocPath, docPathTarget)
 	if err != nil {
 		return fmt.Errorf("failed to copy documentation: %w", err)
 	}
