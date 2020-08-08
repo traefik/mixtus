@@ -51,5 +51,9 @@
   exclude = ["ST1000: at least one file in a package should have a package comment"]
 
   [[issues.exclude-rules]]
+    path = "version.go"
+    text = "`(version|commit|date)` is a global variable"
+
+  [[issues.exclude-rules]]
     path = "core.go"
     text = "Function 'run' is too long"
