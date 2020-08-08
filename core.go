@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/ldez/go-git-cmd-wrapper/add"
 	"github.com/ldez/go-git-cmd-wrapper/checkout"
@@ -73,7 +74,7 @@ func run(cfg Config) error {
 		return fmt.Errorf("failed to get Git status: %w", err)
 	}
 
-	if len(output) == 0 {
+	if hasDiff(output) {
 		log.Println("Nothing to commit.")
 		return nil
 	}
@@ -142,4 +143,19 @@ func setupGitUserInfo(gitInfo GitInfo, debug bool) (string, error) {
 	}
 
 	return "", nil
+}
+
+func hasDiff(output string) bool {
+	if len(output) == 0 {
+		return false
+	}
+
+	// ignore binary diff on sitemap.xml.gz (0 bytes diff)
+	for _, line := range strings.Split(output, "\n") {
+		if !strings.HasSuffix(strings.TrimSpace(line), "sitemap.xml.gz") {
+			return true
+		}
+	}
+
+	return false
 }
