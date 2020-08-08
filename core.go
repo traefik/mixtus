@@ -67,7 +67,7 @@ func run(cfg Config) error {
 	}
 
 	// check the git status of the dir
-	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("-s") }, git.Debugger(cfg.Debug))
+	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("--porcelain") }, git.Debugger(cfg.Debug))
 	if err != nil {
 		fmt.Println(output)
 		return fmt.Errorf("failed to get Git status: %w", err)
