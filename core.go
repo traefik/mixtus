@@ -16,7 +16,7 @@ import (
 	"github.com/ldez/go-git-cmd-wrapper/config"
 	"github.com/ldez/go-git-cmd-wrapper/git"
 	"github.com/ldez/go-git-cmd-wrapper/push"
-	"github.com/ldez/go-git-cmd-wrapper/types"
+	"github.com/ldez/go-git-cmd-wrapper/status"
 	"github.com/traefik/mixtus/file"
 )
 
@@ -68,7 +68,7 @@ func run(cfg Config) error {
 	}
 
 	// check the git status of the dir
-	output, err = git.Raw("status", func(g *types.Cmd) { g.AddOptions("--porcelain") }, git.Debugger(cfg.Debug))
+	output, err = git.Status(status.Porcelain(""), git.Debugger(cfg.Debug))
 	if err != nil {
 		fmt.Println(output)
 		return fmt.Errorf("failed to get Git status: %w", err)
@@ -152,6 +152,10 @@ func hasDiff(output string) bool {
 
 	// ignore binary diff on sitemap.xml.gz (0 bytes diff)
 	for _, line := range strings.Split(output, "\n") {
+		if strings.TrimSpace(line) == "" {
+			continue
+		}
+
 		if !strings.HasSuffix(strings.TrimSpace(line), "sitemap.xml.gz") {
 			return true
 		}
