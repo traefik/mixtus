@@ -24,6 +24,28 @@ func Test_hasDiff(t *testing.T) {
  M traefik/v2.2/sitemap.xml.gz
  M traefik/v2.3/sitemap.xml.gz`,
 		},
+		{
+			desc: "only sitemap.xml",
+			output: ` M traefik/master/sitemap.xml
+ M traefik/sitemap.xml
+ M traefik/v2.0/sitemap.xml
+ M traefik/v2.1/sitemap.xml
+ M traefik/v2.2/sitemap.xml
+ M traefik/v2.3/sitemap.xml`,
+		},
+		{
+			desc: "mixed sitemap.xml and sitemap.xml.gz",
+			output: ` M traefik/master/sitemap.xml.gz
+ M traefik/master/sitemap.xml
+ M traefik/sitemap.xml
+ M traefik/sitemap.xml.gz
+ M traefik/v2.0/sitemap.xml
+ M traefik/v2.0/sitemap.xml.gz
+ M traefik/v2.1/sitemap.xml
+ M traefik/v2.1/sitemap.xml.gz
+ M traefik/v2.2/sitemap.xml
+ M traefik/v2.3/sitemap.xml`,
+		},
 	}
 
 	for _, test := range testCases {
@@ -43,12 +65,12 @@ func Test_hasDiff(t *testing.T) {
 	}{
 		{
 			desc: "simple",
-			output: `M traefik/master/sitemap.xml
- M traefik/sitemap.xml
- M traefik/v2.0/sitemap.xml
- M traefik/v2.1/sitemap.xml
- M traefik/v2.2/sitemap.xml
- M traefik/v2.3/sitemap.xml`,
+			output: `M traefik/master/aaa.html
+ M traefik/bbb.html
+ M traefik/v2.0/ccc.html
+ M traefik/v2.1/ddd.html
+ M traefik/v2.2/eee.html
+ M traefik/v2.3/fff.html`,
 		},
 		{
 			desc: "sitemap.xml.gz but with other files",
@@ -58,6 +80,16 @@ func Test_hasDiff(t *testing.T) {
  M traefik/v2.1/sitemap.xml.gz
  M traefik/v2.2/sitemap.xml.gz
  M traefik/v2.3/sitemap.xml.gz
+?? foobar.txt`,
+		},
+		{
+			desc: "sitemap.xml but with other files",
+			output: ` M traefik/master/sitemap.xml
+ M traefik/sitemap.xml
+ M traefik/v2.0/sitemap.xml
+ M traefik/v2.1/sitemap.xml
+ M traefik/v2.2/sitemap.xml
+ M traefik/v2.3/sitemap.xml
 ?? foobar.txt`,
 		},
 	}

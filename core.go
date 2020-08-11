@@ -151,12 +151,14 @@ func hasDiff(output string) bool {
 	}
 
 	// ignore binary diff on sitemap.xml.gz (0 bytes diff)
-	for _, line := range strings.Split(output, "\n") {
-		if strings.TrimSpace(line) == "" {
+	for _, raw := range strings.Split(output, "\n") {
+		line := strings.TrimSpace(raw)
+
+		if line == "" {
 			continue
 		}
 
-		if !strings.HasSuffix(strings.TrimSpace(line), "sitemap.xml.gz") {
+		if !strings.HasSuffix(line, "sitemap.xml.gz") && !strings.HasSuffix(line, "sitemap.xml") {
 			return true
 		}
 	}
