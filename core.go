@@ -74,7 +74,7 @@ func run(cfg Config) error {
 		return fmt.Errorf("failed to get Git status: %w", err)
 	}
 
-	if hasDiff(output) {
+	if !hasDiff(output) {
 		log.Println("Nothing to commit.")
 		return nil
 	}
