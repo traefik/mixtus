@@ -1,0 +1,11 @@
+{
+  "name": "seo-handler",
+  "version": "1.0.0",
+  "description": "A Node JS program that handles SEO requirements in Traefik Documentation repositories.",
+  "main": "seo-handler.js",
+  "author": "paulocfjunior",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^16.4.0"
+  }
+}
