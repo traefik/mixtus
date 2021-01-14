@@ -1,7 +1,7 @@
 # Lasius Mixtus - Publish Documentation on a GitHub Repository
 
 [![GitHub release](https://img.shields.io/github/release/traefik/mixtus.svg)](https://github.com/traefik/mixtus/releases/latest)
-[![Build Status](https://travis-ci.com/traefik/mixtus.svg?branch=master)](https://travis-ci.com/traefik/mixtus)
+[![Build Status](https://github.com/traefik/mixtus/workflows/Main/badge.svg?branch=master)](https://github.com/traefik/mixtus/actions)
 [![Docker Build Status](https://img.shields.io/docker/cloud/build/traefik/mixtus.svg)](https://hub.docker.com/r/traefik/mixtus/builds/)
 
 ## Description
