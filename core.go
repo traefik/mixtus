@@ -106,7 +106,7 @@ func run(cfg Config) error {
 	output, err = git.Push(push.Remote("origin"), push.RefSpec(branchName), git.Debugger(cfg.Debug))
 	if err != nil {
 		log.Println(output)
-		return fmt.Errorf("failed to push: %s", err)
+		return fmt.Errorf("failed to push: %w", err)
 	}
 
 	ctx := context.Background()

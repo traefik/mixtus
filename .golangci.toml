@@ -37,11 +37,18 @@
     "scopelint",
     "gomnd",
     "wsl",
-    "gocognit",
-    "testpackage",
-    "goerr113",
-    "nestif",
     "nlreturn",
+    "gocognit",
+    "nestif",
+    "testpackage",
+    "paralleltest",
+    "tparallel",
+    "goerr113",
+    "wrapcheck",
+    "exhaustive",
+    "exhaustivestruct",
+    "noctx",
+    "forbidigo",
   ]
 
 [issues]
@@ -56,7 +63,7 @@
 
   [[issues.exclude-rules]]
     path = "version.go"
-    text = "`(version|commit|date)` is a global variable"
+    text = "(version|commit|date) is a global variable"
 
   [[issues.exclude-rules]]
     path = "core.go"
