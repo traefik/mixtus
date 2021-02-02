@@ -5,7 +5,11 @@
   "main": "seo-handler.js",
   "author": "paulocfjunior",
   "license": "ISC",
+  "scripts": {
+    "build": "cat seo-handler.js | nexe --build --verbose"
+  },
   "dependencies": {
-    "jsdom": "^16.4.0"
+    "jsdom": "^16.4.0",
+    "nexe": "^4.0.0-beta.17"
   }
 }
