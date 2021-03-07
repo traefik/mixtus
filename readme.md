@@ -43,9 +43,9 @@ Flags:
 
 This workflow also uses:
 
-- https://github.com/traefik/structor
-- https://github.com/traefik/mixtus
-- https://github.com/traefik/lobicornis
+- https://github.com/traefik/structor: creates multiple versions of a Mkdocs documentation 
+- https://github.com/traefik/mixtus: creates PRs with documentation changes
+- https://github.com/traefik/lobicornis: rebases and merges PRs automatically
 
 The result is here: https://doc.traefik.io/
 
