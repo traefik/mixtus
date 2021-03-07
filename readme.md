@@ -6,7 +6,11 @@
 
 ## Description
 
-```
+Lasius Mixtus is a cross-ci tool (GitHub Actions, SemaphoreCI 1 and 2, TravisCI, ...) uses to aggregate documentation from different projects into one repository.
+
+This is not really a tool to publish, because he creates a PR with documentation changes, he is not able to push directly into a repository.
+
+```yml
 Lasius Mixtus
 
 Flags:
@@ -32,6 +36,18 @@ Flags:
   -token string
         GitHub Token [GITHUB_TOKEN]
 ```
+
+## Workflow Example
+
+![mixtus-workflow](https://user-images.githubusercontent.com/5674651/110240947-993cb000-7f4e-11eb-9b23-ce429cfdebf1.png)
+
+This workflow also uses:
+
+- https://github.com/traefik/structor
+- https://github.com/traefik/mixtus
+- https://github.com/traefik/lobicornis
+
+The result is here: https://doc.traefik.io/
 
 ## Examples
 
