@@ -1,4 +1,4 @@
-# Lasius Mixtus - Publish Documentation on a GitHub Repository
+# Lasius Mixtus - Publish Documentation to a GitHub Repository From Another
 
 [![GitHub release](https://img.shields.io/github/release/traefik/mixtus.svg)](https://github.com/traefik/mixtus/releases/latest)
 [![Build Status](https://github.com/traefik/mixtus/workflows/Main/badge.svg?branch=master)](https://github.com/traefik/mixtus/actions)
