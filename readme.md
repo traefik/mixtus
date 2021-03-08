@@ -8,7 +8,9 @@
 
 Lasius Mixtus is a cross-ci tool (GitHub Actions, SemaphoreCI 1 and 2, TravisCI, ...) uses to aggregate documentation from different projects into one repository.
 
-This is not really a tool to publish, because he creates a PR with documentation changes, he is not able to push directly into a repository.
+He is useful when you try to build an aggregated documentation from different sources.
+
+He creates PRs instead of commits to avoid conflicts and be able to validate the whole documentation before the merge.
 
 ```yml
 Lasius Mixtus
