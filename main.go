@@ -41,8 +41,7 @@ func main() {
 		return
 	}
 
-	nArgs := flag.NArg()
-	if nArgs > 0 {
+	if flag.NArg() > 0 {
 		usage()
 	}
 

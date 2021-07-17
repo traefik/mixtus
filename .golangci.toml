@@ -29,7 +29,11 @@
 [linters]
   enable-all = true
   disable = [
-    "maligned",
+    "golint", # deprecated
+    "scopelint", # deprecated
+    "interfacer", # deprecated
+    "maligned", # deprecated
+    "cyclop",
     "lll",
     "gas",
     "dupl",
