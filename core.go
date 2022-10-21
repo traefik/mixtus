@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -21,7 +20,7 @@ import (
 )
 
 func run(cfg Config) error {
-	dir, err := ioutil.TempDir("", "mixtus-*")
+	dir, err := os.MkdirTemp("", "mixtus-*")
 	if err != nil {
 		return err
 	}
