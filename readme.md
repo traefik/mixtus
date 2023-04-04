@@ -46,6 +46,7 @@ Flags:
 This workflow also uses:
 
 - [structor](https://github.com/traefik/structor): creates multiple versions of a Mkdocs documentation 
+- [seo-doc](https://github.com/traefik/seo-doc): enrich HTML files with pre-requisites for improving SEO
 - [mixtus](https://github.com/traefik/mixtus): creates PRs with documentation changes
 - [lobicornis](https://github.com/traefik/lobicornis): rebases and merges PRs automatically
 
